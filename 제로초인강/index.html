@@ -211,6 +211,9 @@
                     border-radius: 33px;
                     text-align: left;
                 }
+                #search > form:hover{
+                    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12);
+                }
                 #search-svg{
                     display :inline-block;
                     width: 68px;
@@ -225,6 +228,12 @@
                     border: none;
                     outline: none;
                     box-sizing: border-box;
+                }
+                #search-input::placeholder{
+                    color:white;
+                }
+                #search-input:focus::placeholder{
+                    color:rgb(230,230,230);
                 }
                 #search > form a {
                     display: inline-block;
@@ -249,6 +258,9 @@
                     border: none;
                     cursor: pointer;
                 }
+                #search-keyboard:hover::before{
+                    filter: brightness(0.7);
+                }
                 #search-keyboard::before {
                     content: "";
                     display: block;
@@ -270,9 +282,6 @@
                     height: 6px;
                 }
                 #search-button{
-                    flex: 1;
-                    align-items: stretch;
-                    display: inline-flex;
                     margin-top: 16px;
                     margin-right: 20px;
                 }
