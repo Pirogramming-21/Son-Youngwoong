@@ -68,7 +68,9 @@
         }
         #wrap-center {
             width : 1280px;
+            display: inline-block;
             background-color : yellow;
+            position: relative;
 
         }
         #header {
@@ -101,9 +103,11 @@
             top:1px;
         }
         #header-hamburger > div {
+            position: relative;
             background-image: url(./sp_main.712d35ae.png);
             width: 26px;
             height: 26px;
+            z-index:0;
             background-size: 442px 434px;
             background-position: -326px -161px;
             background-repeat: no-repeat;
@@ -112,6 +116,10 @@
         #main{
             height: 2000px;
         }
+        .blind{
+            display: none;
+        }
+        
     </style>
 </head>
 <body>
@@ -120,6 +128,7 @@
             <div id = "header">
                 <button id="header-hamburger">
                     <div></div>
+                    <span class="blind">확장 영역</span>
         </button>
             </div>
             <div id = "search"></div>
