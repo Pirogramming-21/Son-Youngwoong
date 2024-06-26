@@ -220,6 +220,16 @@
                     margin-right: 12px;
                     height : 100%;
                     padding-left: 10px;
+                    position: relative;
+                }
+                #search-svg::after{
+                    content:'';
+                    width:1px;
+                    height:20px;
+                    background-color: gray;
+                    position: absolute;
+                    right:0;
+                    top:20px;
                 }
                 #search > form > input {
                     width: 480px;
@@ -233,7 +243,7 @@
                     color:white;
                 }
                 #search-input:focus::placeholder{
-                    color:rgb(230,230,230);
+                    color:#e4e4e4;
                 }
                 #search > form a {
                     display: inline-block;
