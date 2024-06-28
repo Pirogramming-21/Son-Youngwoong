@@ -46,4 +46,8 @@
     #hamburger-icon {
         display: none;
     }
+    sidebar {
+        display: none;
+    }
 }
+
