@@ -1,0 +1,228 @@
+#interview-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100% 9rem);
+    margin: 0 137.2px;
+    padding: 0 40px;
+}
+.interview-top{
+    width: 100%;
+    height: 40px;
+    font-size: var(--body1);
+    margin-bottom: var(--gutter);
+}
+.interview-top--center{
+    font-size: 2.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: var(16px);
+    font-style: normal;
+    margin-top: 18px;
+    margin-bottom: 18px;
+
+}
+.interview-top--right{
+    font-size: 1.8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 30px;
+    gap: var(16px);
+    font-style: normal;
+    margin-top: -40px;
+}
+.interview-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--gutter);
+    margin-bottom: var(--offset);
+    justify-items: center;
+}
+.interview-box {
+    width: min(100%, 1200px);
+    padding: 0 40px;
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 40px;
+    margin-left: 40px;
+    flex-direction: column;
+}
+
+.interview-profile-top {
+    display: flex;
+    width: 100%;
+}
+.interview-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.interview-box:hover {
+    position: relative;
+    top: -2px;
+}
+.interview-image {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interview-image>img {
+    width: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+    padding: 1rem 2rem;
+}
+
+.interview-box:hover .interview-image > img {
+    transform: scale(1.1);
+}
+
+.interview-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+.interview-info h2 {
+    font-size: 2rem;
+    font-weight: 200;
+    vertical-align: top;
+}
+
+.interview-bottom {
+    display: flex;
+    width: 100%;
+
+}
+
+.interview-bottom > p {
+    font-size: 1.6rem;
+}
+.interview-text{
+    text-align: left;
+
+}
+
+.interview-tag1 {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    vertical-align: bottom;
+    background-color: #2188b6;
+    padding: 6px 8px;
+    font-size: var(--body2);
+    border-radius: 5px;
+    color: white;
+}
+.interview-tag2 {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    vertical-align: bottom;
+    background-color: #35a67b;
+    padding: 6px 8px;
+    font-size: var(--body2);
+    border-radius: 5px;
+    color: white;
+}
+.interview-tag3 {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    vertical-align: bottom;
+    background-color: #c54422;
+    padding: 6px 8px;
+    font-size: var(--body2);
+    border-radius: 5px;
+    color: white;
+}
+
+.interview-more {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.interview-more > div {
+    height: 2px;
+    background-color: rgba(236, 236, 236, 0.466);
+    transition: 0.5s;
+    z-index: 1;
+} 
+
+
+.interview-box:hover .interview-more > div:nth-of-type(1) {
+    width: 50%;
+    margin-right: auto;
+}
+
+.interview-box:hover .interview-more > div:nth-of-type(3) {
+    width: 50%;
+    margin-left: auto;
+}
+
+.interview-text {
+    font-size: var(--body1);
+    padding-top: var(--gutter);
+    line-height: 2rem;
+}
+
+@media screen and (max-width:1416px) {
+    #interview-main {
+        margin: auto;
+    }
+    .interview-list {
+        margin: auto;
+    }
+    .interview-top {
+        padding: auto;
+    }
+    
+}
+@media screen and (max-width:708px) {
+    .interview-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #interview-main {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:504px) {
+    .interview-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #interview-main {
+        margin: auto;
+    }
+}

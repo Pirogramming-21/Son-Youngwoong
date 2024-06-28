@@ -42,7 +42,6 @@ main {
     gap: var(16px);
     font-style: normal;
     margin-top: 20px;
-
 }
 .portfolio-box{
     width: min(100%, 1200px);
