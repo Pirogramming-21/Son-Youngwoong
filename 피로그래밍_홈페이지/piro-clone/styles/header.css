@@ -22,6 +22,9 @@ main{
     align-items: center;
     padding: 0 40px;
 }
+.main-header--container h1 {
+    flex-grow: 1;
+}
 
 .main-header--container > ul{
         display: flex;
