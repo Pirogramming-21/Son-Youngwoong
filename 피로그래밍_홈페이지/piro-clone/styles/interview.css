@@ -6,34 +6,39 @@
     margin: 0 137.2px;
     padding: 0 40px;
 }
-.interview-top{
-    width: 100%;
+
+.interview-top {
     height: 40px;
-    font-size: var(--body1);
-    margin-bottom: var(--gutter);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: min(100%, 1200px);
+    padding: 0 40px;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    margin-bottom: 25px;
+    margin-top: 16px;
 }
-.interview-top--center{
-    font-size: 2.5rem;
+
+
+.interview-text-center {
+    font-size: 2.2rem;
     text-align: center;
     display: flex;
     justify-content: center;
     position: relative;
-    gap: var(16px);
+    gap: var(--gutter);
     font-style: normal;
-    margin-top: 18px;
-    margin-bottom: 18px;
-
 }
-.interview-top--right{
-    font-size: 1.8rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+
+.interview-top >a {
+    font-size: 1.6rem;
+    gap: var(--gutter);
     position: absolute;
-    right: 30px;
-    gap: var(16px);
     font-style: normal;
-    margin-top: -40px;
+    right: 10px;
+    cursor: pointer;
 }
 .interview-content{
     width: 100%;
@@ -120,10 +125,6 @@
 .interview-bottom > p {
     font-size: 1.6rem;
 }
-.interview-text{
-    text-align: left;
-
-}
 
 .interview-tag1 {
     display: flex;
@@ -194,7 +195,7 @@
     line-height: 2rem;
 }
 
-@media screen and (max-width:1416px) {
+@media screen and (max-width:1800px) {
     #interview-main {
         margin: auto;
     }
@@ -206,7 +207,7 @@
     }
     
 }
-@media screen and (max-width:708px) {
+@media screen and (max-width:1000px) {
     .interview-content {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -215,7 +216,7 @@
     }
 }
 
-@media screen and (max-width:504px) {
+@media screen and (max-width:600px) {
     .interview-content {
         width: 100%;
         display: flex;

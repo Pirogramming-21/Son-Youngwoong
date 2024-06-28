@@ -14,35 +14,40 @@ main {
     height: var(--header-height);
     height: cals(100vh, -9rem);
 }
-.portfolio-top{
-    width: 100%;
+.portfolio-top {
     height: 40px;
-    font-size: var(--body1);
-    margin-bottom: var(--gutter);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: min(100%, 1200px);
+    padding: 0 40px;
+    margin-bottom: 25px;
+    margin-top: 16px;
 }
-.portfolio-top--center{
-    font-size: 2.5rem;
+
+
+.portfolio-top-center {
+    font-size: 2.2rem;
     text-align: center;
     display: flex;
     justify-content: center;
     position: relative;
-    gap: var(16px);
+    gap: var(--gutter);
     font-style: normal;
-    margin-top: 18px;
-    margin-bottom: 18px;
+}
 
-}
-.portfolio-top--right{
-    font-size: 1.8rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+.portfolio-top >a {
+    font-size: 1.6rem;
+    gap: var(--gutter);
     position: absolute;
-    right: 10px;
-    gap: var(16px);
     font-style: normal;
-    margin-top: 20px;
+    right: 10px;
+    cursor: pointer;
 }
+
+
 .portfolio-box{
     width: min(100%, 1200px);
     background-color: var(--bg-gray);
