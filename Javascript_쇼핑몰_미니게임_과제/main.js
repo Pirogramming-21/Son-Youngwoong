@@ -15,10 +15,30 @@ function createHTMLString(item){
     </li>
     `;
 }
+function onButtonClick(event, items){
+    const dataset = event.target.dataset;
+    const key = dataset.key;
+    const value = dataset.value;
+
+    if (key==null||value==null){
+        return;
+    }
+    displayItems(items.filter(item=>item[key]===value));
+    //console.log(event.target.dataset.key);
+    //console.log(event.target.dataset.value);
+}
+function setEventListeners(items){
+    const logo = document.querySelector('.logo');
+    const buttons = document.querySelector('.buttons');
+    logo.addEventListener('click', ()=>onButtonClick());
+    buttons.addEventListener('click', event=>onButtonClick(event, items));
+}
+
+//main
 loadItems()
 .then(items => {
     //console.log(items);
     displayItems(items);
-    // setEventListeners(items)
+    setEventListeners(items)
 })
 .catch(console.log);
