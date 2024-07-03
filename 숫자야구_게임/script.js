@@ -4,7 +4,7 @@ let attempts_remaining;
 
 //초기화
 function init(){
-    attempts_remaining = 10;
+    attempts_remaining = 9;
     answer_numbers = random_3num(); 
     document.querySelectorAll('.input-field').forEach(input=>input.value='')
     document.querySelector('.result-display').innerHTML = '';
