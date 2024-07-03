@@ -10,7 +10,8 @@ function init(){
     document.querySelector('.result-display').innerHTML = '';
     document.getElementById('game-result-img').style.display = 'none';
     document.querySelector('.submit-button').disabled = false;
-    console.log(answer_numbers);
+   //디버깅용
+   //console.log(answer_numbers);
 }
 
 //랜덤 숫자 생성
@@ -56,12 +57,17 @@ function check_numbers() {
         document.getElementById('game-result-img').style.display = 'block';
         alert("성공!!!");
         document.querySelector('.submit-button').disabled = true;
+        setTimeout(init, 2000);
     } else if (attempts_remaining === 0) {
         document.getElementById('game-result-img').src = "fail.png";
         document.getElementById('game-result-img').style.display = 'block';
         //백틱 사용으로 정답 출력
         alert(`실패... 정답은 ${answer_numbers.join(' ')}입니다`);
         document.querySelector('.submit-button').disabled = true;
+        setTimeout(init, 2000);
+
+        //setTimeout 사용하여 게임 종료시 2초 후 다시 시작
+
     }
 }
 //숫자 비교
