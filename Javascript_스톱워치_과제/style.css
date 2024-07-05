@@ -1,0 +1,170 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.main {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.title i {
+    font-size: 2em;
+    margin-right: 10px;
+    color: #333333;
+}
+
+.title h2 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.stopwatch {
+    background-color: #f0f4f7;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#display {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: black;
+}
+
+
+.record__container {
+    background-color: #f0f4f7;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+}
+
+.record__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #333333;
+}
+.select-all-btn {
+    background-color: #333333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.select-all-btn i {
+    display: none;
+    font-size: 1em;
+}
+
+.select-all-btn.selected i {
+    display: inline;
+}
+
+.select-all-btn:hover {
+    background-color: black;
+}
+
+.trash {
+    background-color: trannsparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.trash:hover {
+    color: white;
+}
+
+.record__bottom {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.record__item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: background-color 0.3s;
+}
+
+.record__item.selected {
+    background-color: #d0e7ff;
+}
+
+.record__item .select-btn {
+    margin-right: 10px;
+    background-color: #333333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.record__item .select-btn i {
+    display: none;
+    font-size: 0.8em;
+}
+
+.record__item.selected .select-btn {
+    background-color: #333333;
+}
+
+.record__item.selected .select-btn i {
+    display: inline;
+}
