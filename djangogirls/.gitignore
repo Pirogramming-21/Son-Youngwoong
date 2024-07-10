@@ -13,3 +13,21 @@ __pycache__/
 .vscode/
 .idea/
 x
+
+# Ignore Django migration files
+*/migrations/
+
+# Ignore virtual environment directory
+venv/
+myvenv/
+
+# Ignore compiled files
+__pycache__/
+*.py[cod]
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE project files
+.idea/
+.vscode/
