@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Movie Reviews</title>
+</head>
+<body>
+    <h1>My Movie Reviews</h1>
+    <a href="{% url 'review_create' %}">리뷰 작성</a>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <a href="{% url 'review_detail' review.pk %}">{{ review.title }}</a> ({{ review.release_year }}, {{ review.genre }}, {{ review.rating }} stars)
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

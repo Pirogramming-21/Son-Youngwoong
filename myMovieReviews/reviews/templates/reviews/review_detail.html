@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ review.title }}</title>
+</head>
+<body>
+    <h1>{{ review.title }}</h1>
+    <p>Director: {{ review.director }}</p>
+    <p>Main Cast: {{ review.main_cast }}</p>
+    <p>Genre: {{ review.genre }}</p>
+    <p>Release Year: {{ review.release_year }}</p>
+    <p>Rating: {{ review.rating }}</p>
+    <p>Running Time: {{ review.running_time }} minutes</p>
+    <p>{{ review.review_text }}</p>
+    <a href="{% url 'review_list' %}">My Movie Reviews</a>
+    <a href="{% url 'review_update' review.pk %}">수정</a>
+    <a href="{% url 'review_delete' review.pk %}">삭제</a>
+</body>
+</html>
