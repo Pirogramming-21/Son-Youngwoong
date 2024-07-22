@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pirostagram</title>
+</head>
+<body>
+    <h1>Pirostagram</h1>
+    <a href="{% url 'create_post' %}">Create a new post</a>
+    {% if not request.user.is_authenticated %}
+        <a href="{% url 'login' %}">Login</a>  
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% else %}
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% endif %}
+    <div id="posts">
+        {% for post in posts %}
+        <div class="post">
+            <p>{{ post.content }}</p>
+            <button class="like-button" data-post-id="{{ post.id }}">
+                {% if request.user in post.like_set.all %}
+                Unlike
+                {% else %}
+                Like
+                {% endif %}
+            </button>
+            <span id="like-count-{{ post.id }}">{{ post.like_set.count }}</span>
+            <ul id="comments-{{ post.id }}">
+                {% for comment in post.comment_set.all %}
+                <li>
+                    <strong>{{ comment.user.username }}</strong>: {{ comment.text }}
+                    {% if comment.user == request.user %}
+                    <button class="delete-comment" data-comment-id="{{ comment.id }}">Delete</button>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            <form class="comment-form" data-post-id="{{ post.id }}">
+                <input type="text" class="comment-text" placeholder="Add a comment...">
+                <button type="submit">Post</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.like-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const postId = button.dataset.postId;
+                    fetch('/like/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                        body: `post_id=${postId}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.liked) {
+                            button.textContent = 'Unlike';
+                        } else {
+                            button.textContent = 'Like';
+                        }
+                        document.getElementById(`like-count-${postId}`).textContent = data.like_count;
+                    });
+                });
+            });
+
+            document.querySelectorAll('.comment-form').forEach(form => {
+                form.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const postId = form.dataset.postId;
+                    const commentText = form.querySelector('.comment-text').value;
+                    fetch('/add_comment/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                        body: `post_id=${postId}&comment_text=${commentText}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const commentList = document.getElementById(`comments-${postId}`);
+                        const newComment = document.createElement('li');
+                        newComment.innerHTML = `
+                            <strong>${data.comment_user}</strong>:
+                            ${data.comment_text}
+                            <button class="delete-comment" data-comment-id="${data.comment_id}">Delete</button>
+                        `;
+                        commentList.appendChild(newComment);
+                        form.querySelector('.comment-text').value = '';
+                        addDeleteCommentEvent(newComment.querySelector('.delete-comment'));
+                    });
+                });
+            });
+
+            function addDeleteCommentEvent(button) {
+                button.addEventListener('click', () => {
+                    const commentId = button.dataset.commentId;
+                    fetch('/delete_comment/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                        body: `comment_id=${commentId}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            button.parentElement.remove();
+                        }
+                    });
+                });
+            }
+
+            document.querySelectorAll('.delete-comment').forEach(button => {
+                addDeleteCommentEvent(button);
+            });
+
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        });
+    </script>
+</body>
+</html>
